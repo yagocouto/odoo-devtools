@@ -13,6 +13,22 @@ analistas de sistemas, suporte técnico, consultores funcionais e key users.
 5. Abra qualquer instância Odoo 19 — o botão flutuante ⚙ aparecerá no
    canto inferior direito da tela.
 
+
+| Aba | Descrição resumida |
+| --- | --- |
+| **[Debug](ca://s?q=Explicar_funcionalidade_Debug)** | Ativa ou remove o modo de depuração e assets para análise técnica rápida. |
+| **[View](ca://s?q=Explicar_funcionalidade_View)** | Inspeciona e copia informações de views, módulos e hierarquias de formulários. |
+| **[Registro](ca://s?q=Explicar_funcionalidade_Registro)** | Exibe metadados completos de registros, regras e contexto de execução. |
+| **[Network](ca://s?q=Explicar_funcionalidade_Network)** | Monitora requisições RPC, payloads e respostas para diagnóstico de API. |
+| **[Performance](ca://s?q=Explicar_funcionalidade_Performance)** | Mede tempos de carregamento e desempenho de páginas e chamadas RPC. |
+| **[Favoritos](ca://s?q=Explicar_funcionalidade_Favoritos)** | Permite salvar e gerenciar views, menus e registros favoritos. |
+| **[Ferramentas](ca://s?q=Explicar_funcionalidade_Ferramentas)** | Gera seletores XPath e exporta dados da tela em JSON, TXT ou Markdown. |
+| **[Config](ca://s?q=Explicar_funcionalidade_Config)** | Ajusta tema, histórico de requests e atalhos de inspeção. |
+<img width="428" height="585" alt="odoo-devtools-view" src="https://github.com/user-attachments/assets/0c2e9580-5b4f-42fc-8f15-3bff26b84425" />
+<img width="660" height="781" alt="odoo-devtools-registro" src="https://github.com/user-attachments/assets/f30eb265-ee85-4b0e-9568-46e4ad87430d" />
+<img width="684" height="522" alt="odoo-devtools-copy" src="https://github.com/user-attachments/assets/9928b9a3-bb97-4c82-b13f-00b1fce26d1a" />
+
+
 ## Arquitetura
 
 ```
