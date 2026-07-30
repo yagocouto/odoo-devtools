@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odoo 19 DevTools</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <header class="odt-popup-header">
+    <span>Odoo 19 DevTools</span>
+    <span class="odt-badge">somente leitura</span>
+  </header>
+
+  <main class="odt-popup-main">
+    <div id="odt-status" class="odt-popup-status">Verificando página…</div>
+
+    <section class="odt-popup-actions">
+      <button id="btn-open-panel" class="odt-btn odt-btn--primary">Abrir Painel</button>
+    </section>
+
+    <section class="odt-popup-actions">
+      <h3>Debug</h3>
+      <button id="btn-debug-on" class="odt-btn">Ativar Debug</button>
+      <button id="btn-debug-assets" class="odt-btn">Ativar Debug Assets</button>
+      <button id="btn-debug-off" class="odt-btn">Remover Debug</button>
+    </section>
+
+    <section class="odt-popup-actions">
+      <h3>Histórico RPC</h3>
+      <div id="odt-history-count">0 requests salvos</div>
+    </section>
+  </main>
+
+  <footer class="odt-popup-footer">
+    <span>v1.0.0</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

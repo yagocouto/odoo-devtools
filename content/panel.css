@@ -1,0 +1,271 @@
+/**
+ * content/panel.css
+ * ------------------------------------------------------------
+ * Estilos do painel flutuante da extensão. Todo o CSS é escopado
+ * dentro de #odoo-devtools-root para nunca vazar/colidir com o
+ * layout nativo do Odoo (item 15 do escopo).
+ * ------------------------------------------------------------
+ */
+
+#odoo-devtools-root {
+  --odt-bg: #1e1e1e;
+  --odt-bg-alt: #252526;
+  --odt-fg: #e4e4e4;
+  --odt-border: #3c3c3c;
+  --odt-accent: #4ec9b0;
+  --odt-accent-2: #569cd6;
+  --odt-error: #f14c4c;
+  --odt-success: #89d185;
+  --odt-radius: 8px;
+  --odt-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 2147483000;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+:root[data-odt-theme="light"] #odoo-devtools-root {
+  --odt-bg: #ffffff;
+  --odt-bg-alt: #f3f3f3;
+  --odt-fg: #1e1e1e;
+  --odt-border: #d4d4d4;
+  --odt-accent: #0e8a72;
+  --odt-accent-2: #1b6fb8;
+}
+
+/* ---------------- Launcher ---------------- */
+#odt-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--odt-accent-2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--odt-shadow);
+  pointer-events: auto;
+}
+#odt-launcher:hover { filter: brightness(1.1); }
+
+/* ---------------- Painel ---------------- */
+.odt-panel {
+  position: fixed;
+  bottom: 76px;
+  right: 20px;
+  width: 420px;
+  height: 520px;
+  min-width: 320px;
+  min-height: 240px;
+  background: var(--odt-bg);
+  color: var(--odt-fg);
+  border: 1px solid var(--odt-border);
+  border-radius: var(--odt-radius);
+  box-shadow: var(--odt-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  font-size: 13px;
+}
+
+.odt-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--odt-bg-alt);
+  border-bottom: 1px solid var(--odt-border);
+  cursor: move;
+  font-weight: 600;
+}
+.odt-panel-header-actions button {
+  background: none;
+  border: none;
+  color: var(--odt-fg);
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.odt-tabbar {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--odt-bg-alt);
+  border-bottom: 1px solid var(--odt-border);
+}
+.odt-tab {
+  flex: 1 1 auto;
+  padding: 6px 8px;
+  background: none;
+  border: none;
+  color: var(--odt-fg);
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 11px;
+  border-bottom: 2px solid transparent;
+}
+.odt-tab--active {
+  opacity: 1;
+  border-bottom-color: var(--odt-accent);
+  color: var(--odt-accent);
+}
+
+.odt-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.odt-resize-handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 50%, var(--odt-border) 50%);
+}
+
+/* ---------------- Componentes genéricos ---------------- */
+.odt-section { display: flex; flex-direction: column; gap: 8px; }
+.odt-btn {
+  background: var(--odt-bg-alt);
+  border: 1px solid var(--odt-border);
+  color: var(--odt-fg);
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.odt-btn:hover { border-color: var(--odt-accent); }
+.odt-btn--primary { background: var(--odt-accent-2); color: #fff; border-color: transparent; }
+.odt-btn--small { padding: 2px 6px; font-size: 11px; }
+.odt-btn-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+
+.odt-popup-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--odt-border);
+}
+.odt-popup-label { opacity: 0.65; }
+.odt-popup-value { text-align: right; word-break: break-all; }
+
+.odt-warning { color: var(--odt-error); padding: 6px 0; }
+.odt-subsection-title { font-weight: 600; margin: 10px 0 4px; color: var(--odt-accent); }
+.odt-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--odt-border);
+  font-size: 12px;
+}
+.odt-pre {
+  background: var(--odt-bg-alt);
+  padding: 8px;
+  border-radius: 4px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 11px;
+  max-height: 140px;
+}
+
+/* ---------------- Network tab ---------------- */
+.odt-filter-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+.odt-filter-bar input[type="text"] {
+  flex: 1;
+  background: var(--odt-bg-alt);
+  border: 1px solid var(--odt-border);
+  color: var(--odt-fg);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.odt-network-layout { display: flex; gap: 8px; height: 320px; }
+.odt-network-list { flex: 1; overflow-y: auto; border-right: 1px solid var(--odt-border); }
+.odt-network-detail { flex: 1.2; overflow-y: auto; }
+.odt-req {
+  display: flex;
+  gap: 6px;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--odt-border);
+  cursor: pointer;
+  font-size: 11px;
+}
+.odt-req:hover { background: var(--odt-bg-alt); }
+.odt-req--error { color: var(--odt-error); }
+.odt-req--ok { color: var(--odt-success); }
+.odt-req-model { flex: 1; font-weight: 600; }
+.odt-req-method { flex: 1; opacity: 0.8; }
+
+/* ---------------- Popup de campo (item 2) ---------------- */
+.odt-field-popup {
+  position: fixed;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: var(--odt-bg);
+  color: var(--odt-fg);
+  border: 1px solid var(--odt-accent);
+  border-radius: var(--odt-radius);
+  box-shadow: var(--odt-shadow);
+  z-index: 2147483001;
+  pointer-events: auto;
+  font-size: 12px;
+}
+.odt-popup-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: var(--odt-bg-alt);
+  border-bottom: 1px solid var(--odt-border);
+  font-weight: 600;
+}
+.odt-popup-close { background: none; border: none; color: var(--odt-fg); cursor: pointer; font-size: 16px; }
+.odt-popup-body { padding: 8px 10px; display: flex; flex-direction: column; gap: 4px; }
+.odt-popup-actions { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.odt-popup-warning { color: var(--odt-error); }
+
+/* ---------------- Destaque de campos (ALT) ---------------- */
+body.odt-alt-mode { cursor: crosshair !important; }
+.odoo-devtools-highlight {
+  outline: 2px solid var(--odt-accent, #4ec9b0) !important;
+  outline-offset: 1px;
+  background-color: rgba(78, 201, 176, 0.12) !important;
+}
+
+/* ---------------- Toasts ---------------- */
+.odt-toast-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2147483002;
+  pointer-events: none;
+}
+.odt-toast {
+  background: var(--odt-bg-alt, #252526);
+  color: var(--odt-fg, #e4e4e4);
+  border-left: 3px solid var(--odt-success, #89d185);
+  padding: 8px 12px;
+  border-radius: 4px;
+  box-shadow: var(--odt-shadow, 0 4px 12px rgba(0,0,0,0.3));
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+  font-size: 12px;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.odt-toast--visible { opacity: 1; transform: translateY(0); }
+.odt-toast--error { border-left-color: var(--odt-error, #f14c4c); }

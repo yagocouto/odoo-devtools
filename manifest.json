@@ -1,0 +1,95 @@
+{
+  "manifest_version": 3,
+  "name": "Odoo 19 DevTools",
+  "version": "1.0.0",
+  "description": "Ferramenta de inspeção, produtividade e diagnóstico para desenvolvedores, consultores e suporte técnico Odoo 19 Enterprise. Somente leitura.",
+  "author": "Odoo DevTools",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "webRequest",
+    "tabs",
+    "contextMenus",
+    "clipboardWrite"
+  ],
+
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "background": {
+    "service_worker": "background/service_worker.js"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Odoo 19 DevTools"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "utils/storage.js",
+        "utils/dom.js",
+        "utils/helpers.js",
+        "utils/notifications.js",
+        "modules/rpc.js",
+        "modules/debug.js",
+        "modules/fields.js",
+        "modules/network.js",
+        "modules/views.js",
+        "modules/models.js",
+        "modules/performance.js",
+        "modules/favorites.js",
+        "modules/clipboard.js",
+        "content/content.js"
+      ],
+      "css": ["content/panel.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "commands": {
+    "toggle-debug": {
+      "suggested_key": { "default": "Ctrl+Shift+D" },
+      "description": "Ativar/remover modo Debug do Odoo"
+    },
+    "open-network": {
+      "suggested_key": { "default": "Ctrl+Shift+N" },
+      "description": "Abrir Monitor de Network"
+    },
+    "open-record": {
+      "suggested_key": { "default": "Ctrl+Shift+R" },
+      "description": "Mostrar informações do registro atual"
+    },
+    "open-xpath": {
+      "suggested_key": { "default": "Ctrl+Shift+X" },
+      "description": "Abrir Gerador de XPath"
+    }
+  },
+
+  "minimum_chrome_version": "116"
+}
