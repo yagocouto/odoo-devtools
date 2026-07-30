@@ -51,20 +51,9 @@ arquivos são concatenados pelo próprio Chrome na ordem declarada em
 ## Atalhos de teclado
 
 | Atalho         | Ação                                   |
-|----------------|-----------------------------------------|
-| `Ctrl+Shift+D` | Alternar modo Debug                     |
-| `Ctrl+Shift+N` | Abrir Monitor de Network                |
-| `Ctrl+Shift+R` | Mostrar informações do Registro atual   |
-| `Ctrl+Shift+X` | Abrir Gerador de XPath                  |
+|----------------|----------------------------------------|
+| `Alt+clique`   | para inspeção de campo em tela         |
 
-> **Nota:** o Chrome permite **no máximo 4 atalhos** (`commands`) por
-> extensão — por isso o item "Copiar Campo" do escopo original não tem
-> atalho global dedicado (a inspeção de campo já é acionada segurando
-> `ALT` e clicando, sem precisar de atalho). O escopo original também
-> pedia `Ctrl+Shift+I` para "Registro", mas essa combinação é
-> **reservada pelo próprio Chrome** (abre o DevTools nativo) e foi
-> substituída por `Ctrl+Shift+R`. Os atalhos podem ser remapeados
-> livremente em `chrome://extensions/shortcuts`.
 
 No painel de **Configurações**, a interface exibe somente a ação
 `Alt+clique` para inspeção de campo em tela.
